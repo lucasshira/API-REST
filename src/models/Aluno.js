@@ -8,7 +8,7 @@ export default class Aluno extends Model {
       email: Sequelize.STRING,
       idade: Sequelize.INTEGER,
       peso: Sequelize.FLOAT,
-      peso: Sequelize.FLOAT,
+      altura: Sequelize.FLOAT,
     }, {
       sequelize,
     });
