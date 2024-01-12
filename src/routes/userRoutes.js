@@ -1,14 +1,16 @@
 import { Router } from 'express';
 // importando apenas o Router do express com destructuring
 import userController from '../controllers/UserController';
+import loginRequired from '../middlewares/loginRequired';
 
 const router = new Router();
 
+// router.get('/', userController.index);
+// router.get('/:id', userController.show);
+
 router.post('/', userController.store);
-router.get('/', userController.index);
-router.get('/:id', userController.show);
-router.put('/:id', userController.update);
-router.delete('/:id', userController.delete);
+router.put('/', loginRequired, userController.update); // loginRequired pois precisamos do ID do user logado
+router.delete('/', loginRequired, userController.delete);
 
 export default router;
 
