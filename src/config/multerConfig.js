@@ -13,7 +13,7 @@ export default {
   },
   storage: multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, resolve(__dirname, '..', '..', 'uploads')); // caminho onde ira salvar as fotos
+      cb(null, resolve(__dirname, '..', '..', 'uploads', 'images')); // caminho onde ira salvar as fotos
     },
     filename: (req, file, cb) => {
       cb(null, `${Date.now()}_${aleatorio()}${extname(file.originalname)}`); // setando o novo nome do arquivo foto
