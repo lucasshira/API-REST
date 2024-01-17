@@ -15,7 +15,7 @@ class AlunoController {
       return res.json(alunos);
     } catch (e) {
       return res.status(400).json({
-        errors: ['Erro ao buscar alunos'],
+        errors: [`Erro ao buscar alunos: ${e.message}`],
       });
     }
   }
@@ -59,7 +59,7 @@ class AlunoController {
       return res.json(aluno);
     } catch (e) {
       return res.status(400).json({
-        errors: e.errors.map((err) => err.message),
+        errors: [`Erro ao buscar alunos: ${e.message}`],
       });
     }
   }
