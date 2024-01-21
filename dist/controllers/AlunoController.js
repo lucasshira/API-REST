@@ -89,7 +89,7 @@ class AlunoController {
       });
     } catch (e) {
       return res.status(400).json({
-        errors: [`Erro ao buscar alunos: ${e.message}`],
+        errors: [`Erro ao buscar aluno: ${e.message}`],
       });
     }
   }
