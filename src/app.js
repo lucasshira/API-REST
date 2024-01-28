@@ -16,7 +16,7 @@ import fotoRoutes from './routes/fotoRoutes';
 
 const whiteList = [
   'https://node-api-rest-z93p.onrender.com',
-  'https://localhost:3000',
+  'http://localhost:3000',
 ];
 
 const corsOptions = {
@@ -38,7 +38,9 @@ class App {
 
   middlewares() {
     this.app.use(cors(corsOptions));
-    this.app.use(helmet());
+    this.app.use(helmet({
+      crossOriginEmbedderPolicy: false,
+    }));
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
     this.app.use('/images/', express.static(resolve(__dirname, '..', 'uploads', 'images')));
